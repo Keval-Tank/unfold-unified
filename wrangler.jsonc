@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "unfold-unified",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-25",
+  // nodejs_compat + the v2 flag are required by the OpenNext adapter — the Next
+  // server needs Node APIs that workerd only exposes behind them.
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  "assets": {
+    // The BUILD's static files: JS/CSS chunks, fonts, and every template's art
+    // (public/templates/*, public/shared/*). These ship with the Worker and are
+    // the same for every couple — which is exactly why a couple costs kilobytes.
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  "r2_buckets": [
+    {
+      // The one binding the whole app talks to. Locally this is Miniflare's R2
+      // simulator (persisted under .wrangler/state); in production it is the real
+      // bucket. src/lib/store.ts is the ONLY module that touches it.
+      //
+      // Two prefixes live inside, and they must stay apart:
+      //   data/couple/<slug>.json    PRIVATE. Read by the server, never served.
+      //   assets/couple/<slug>/*     PUBLIC.  The couple's own photographs.
+      //
+      // The existing gateway serves any key under `couple/<slug>/` straight from
+      // R2 — so putting the JSON beside the photos would make it fetchable at
+      // /couple/<slug>/template.json and hand back the entire config.
+      "binding": "BUCKET",
+      "bucket_name": "unfold-assets","preview_bucket_name": "unfold-assets"
+    }
+  ],
+
+  "observability": {
+    "enabled": true
+  }
+}

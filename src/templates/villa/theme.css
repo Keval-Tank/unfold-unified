@@ -1,0 +1,60 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   VILLA — the template's own theme. Every colour and typeface it owns.
+   ═══════════════════════════════════════════════════════════════════════════
+   Scoped to [data-template="villa"] so it can never leak into another
+   template's subtree once both live in one build. In the standalone app that
+   attribute is on <html>; in the unified build it is on the template wrapper.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-template="villa"] {
+  /* ── Colours ── */
+  --color-primary: #a85a3d;
+  --color-primary-dark: #5a2d20;
+  --color-cream: #f5efe6;
+  --color-cream-dark: #ecdfcf;
+  --color-text: #3a2e24;
+  --color-text-light: #7a6555;
+  --color-white: #ffffff;
+  --color-white-soft: rgba(255, 255, 255, 0.85);
+  --color-white-muted: rgba(255, 255, 255, 0.45);
+  --color-gold: #c9a050;
+  --color-divider: #d8c8a8;
+  --color-marigold: #e89a3d;
+  --color-burgundy: #8b3540;
+  --color-sage: #9aa676;
+  --color-water: #a8d8e0;
+  --color-hero-text: #655A50;
+  --color-hero-gold: #B89668;
+  --color-credits-bg: #111111;
+  --color-divider-dark: #2f2822;
+
+  /* ── Typefaces ──
+     The FAMILY tokens are declared HERE, not in globals.css, because they
+     reference this template's --ff-* vars — and those only exist inside this
+     scope (next/font puts them on the element carrying data-template).
+
+     This matters: a var() inside a custom property is substituted where that
+     property is DECLARED, not where it is used. A `:root`-level
+     `--font-manrope: var(--ff-manrope)` resolves against an undefined
+     --ff-manrope, computes to invalid, and inherits down as invalid — so every
+     element silently falls back to the system font. Declaring the family here,
+     alongside the --ff-* vars, is what makes the fonts actually apply. */
+  --font-cormorant: var(--ff-cormorant), ui-serif, Georgia, serif;
+  --font-manrope: var(--ff-manrope), system-ui, -apple-system, sans-serif;
+
+  /* Villa's default sans. Overriding --font-sans is scoped HERE rather than
+     global: at :root it would silently change every other template's default. */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Roles → faces */
+  --font-body: var(--font-manrope);
+  --font-couple: var(--font-cormorant);
+  --font-heading: var(--font-cormorant);
+  --font-numeric: var(--font-manrope);
+
+  /* ── What `body { … }` used to do ──
+     Note villa's body font is the system sans stack, NOT --font-body. */
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}

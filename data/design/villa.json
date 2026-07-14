@@ -1,0 +1,172 @@
+{
+  "couple": {
+    "bride": { "firstName": "Isha", "fullName": "Isha Pandya" },
+    "groom": { "firstName": "Yash", "fullName": "Yash Mehta" }
+  },
+  "wedding": {
+    "year": 2026,
+    "month": 12,
+    "day": 28,
+    "hour": 8,
+    "minute": 0,
+    "utcOffset": "+05:30",
+    "ceremonyLengthHours": 3
+  },
+  "site": {
+    "name": "Unfold Invite",
+    "domain": "https://unfoldinvite.com",
+    "templateSlug": "villa",
+    "twitter": "@unfoldinvite",
+    "instagram": "https://www.instagram.com/unfoldinvite"
+  },
+  "seo": {
+    "title": "Villa — European Garden Wedding Invitation Website | Unfold Invite",
+    "description": "Villa, a European garden wedding invitation website by Unfold Invite — arches, damask wallpaper and vintage florals, crafted by designers. Ready in 48 hours, share on WhatsApp.",
+    "keywords": [
+      "european wedding invitation website",
+      "garden wedding invitation",
+      "vintage wedding invitation website",
+      "villa wedding template",
+      "digital wedding invitation",
+      "online wedding invitation",
+      "destination wedding invite"
+    ],
+    "ogImage": "/og/villa.jpg",
+    "ogImageAlt": "Villa — a European garden wedding invitation website by Unfold Invite"
+  },
+  "content": {
+    "cover": {
+      "eyebrow": "The Wedding Of",
+      "button": "Open Invitation",
+      "design": "classic",
+      "classicImage": "/images/cover.webp"
+    },
+    "loading": {
+      "eyebrow": "The Wedding Of"
+    },
+    "hero": {
+      "included": true,
+      "eyebrow": "TOGETHER WITH THEIR FAMILIES",
+      "image": "/images/hero-couple.webp"
+    },
+    "couple": {
+      "included": true,
+      "headingLines": ["THE", "GROOM & BRIDE"],
+      "intro": "It is with deepest pride & greatest pleasure that we welcome you to the marriage of",
+      "instagramLabel": "@Instagram",
+      "bride": {
+        "parentLabel": "The Daughter Of",
+        "parents": "Mr. & Mrs. Pandya",
+        "instagramUrl": "https://www.instagram.com/",
+        "photo": "/images/bride-profile.webp"
+      },
+      "groom": {
+        "parentLabel": "The Son Of",
+        "parents": "Mr. & Mrs. Mehta",
+        "instagramUrl": "https://www.instagram.com/",
+        "photo": "/images/groom-profile.webp"
+      }
+    },
+    "timeline": {
+      "included": true,
+      "title": "Functions",
+      "events": [
+        {
+          "name": "Welcome Gathering",
+          "time": "8:30",
+          "period": "Morning",
+          "description": "Guests arrive and gather to kick off the wedding festivities.",
+          "date": { "day": 28, "monthShort": "Dec" }
+        },
+        {
+          "name": "Sangeet",
+          "time": "8:00",
+          "period": "Evening",
+          "description": "An evening of music, dance, and performances celebrating the couple.",
+          "date": null
+        },
+        {
+          "name": "Mehendi",
+          "time": "10:00",
+          "period": "Morning",
+          "description": "A relaxed, festive session of beauty and adornment ahead of the big day.",
+          "date": { "day": 29, "monthShort": "Dec" }
+        },
+        {
+          "name": "The Ceremony",
+          "time": "1:00",
+          "period": "Evening",
+          "description": "The couple exchanges vows, rings, and promises before family and friends.",
+          "date": null
+        },
+        {
+          "name": "Reception",
+          "time": "7:00",
+          "period": "Evening",
+          "description": "A joyous evening of dinner, toasts, and dancing to honor the newlyweds.",
+          "date": null
+        }
+      ]
+    },
+    "saveTheDate": {
+      "included": true,
+      "titleLines": ["Save", "The", "Date"],
+      "countdownLabels": ["Days", "Hours", "Minutes", "Seconds"],
+      "remindButton": "Remind Me"
+    },
+    "location": {
+      "included": true,
+      "heading": "Location",
+      "venueName": "The Sparkle Farm House",
+      "venueAddress": "Jaipur, Rajasthan",
+      "directionsButton": "Get Directions",
+      "directionsUrl": "https://maps.app.goo.gl/hKqERoWUF6h2C8pMA",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.2217451464608!2d75.70466739999999!3d26.8964568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4b56a7e6ac67%3A0xef464b585bb2ebad!2sThe%20Sparkle%20Farm%20House!5e0!3m2!1sen!2sin!4v1782827133264!5m2!1sen!2sin",
+      "mapLoadingLabel": "Loading map…"
+    },
+    "gallery": {
+      "included": true,
+      "heading": "Snapshot of love",
+      "photos": [
+        "/images/c1.webp",
+        "/images/c2.webp",
+        "/images/c3.webp",
+        "/images/c4.webp",
+        "/images/c5.webp",
+        "/images/c6.webp"
+      ],
+      "youtubeEmbedUrl": "https://www.youtube-nocookie.com/embed/hopMHZrO7Mw?controls=1&rel=0",
+      "youtubeWatchUrl": "https://www.youtube.com/watch?v=hopMHZrO7Mw",
+      "helperText": "Should you have any issues with live video above, then please click on the button below instead:",
+      "youtubeButton": "View on YouTube"
+    },
+    "dressCode": {
+      "included": true,
+      "titleLines": ["A Guide to", "Dress Codes"],
+      "quote": "“Hey everyone, we'd love for you to wear these colors for our special day!”",
+      "colors": [
+        { "name": "Sage Green", "hex": "#8a9a7b" },
+        { "name": "Dusty Rose", "hex": "#c9a89a" },
+        { "name": "Ivory", "hex": "#f0ead6" }
+      ]
+    },
+    "wishes": {
+      "included": true,
+      "heading": "Wedding Wish",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "attendQuestion": "Will you attend the wedding?",
+      "attendYes": "Excited to Attend",
+      "attendNo": "Unable to Attend",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Write your wishes...",
+      "sendButton": "Send"
+    },
+    "greetings": {
+      "included": true,
+      "message": "Join us as we begin this beautiful new chapter. Your presence and blessings would mean the world to us.",
+      "invitesLabel": "Invitees",
+      "inviteeNames": ["Mr. & Mrs. Sharma", "Rohan & Priya Kapoor", "Anjali Verma"]
+    }
+  }
+}

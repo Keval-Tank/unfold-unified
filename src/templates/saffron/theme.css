@@ -1,0 +1,73 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SAFFRON — the template's own theme. Every colour and typeface it owns.
+   ═══════════════════════════════════════════════════════════════════════════
+   Scoped to [data-template="saffron"] so it can never leak into another
+   template's subtree once both live in one build. In the standalone app that
+   attribute is on <html>; in the unified build it is on the template wrapper.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+[data-template="saffron"] {
+  /* ── Colours ── */
+  --color-primary: #a85a3d;
+  --color-primary-dark: #5a2d20;
+  --color-cream: #f5efe6;
+  --color-cream-dark: #ecdfcf;
+  --color-text: #3E3027;
+  --color-text-light: #7a6555;
+  --color-white: #ffffff;
+  --color-white-soft: rgba(255, 255, 255, 0.85);
+  --color-white-muted: rgba(255, 255, 255, 0.45);
+  --color-divider: #d8c8a8;
+  --color-marigold: #e89a3d;
+  --color-burgundy: #8b3540;
+  --color-water: #a8d8e0;
+  --color-burgundy-new: #8A5A5A;
+  --color-gate-eyebrow: #655A50;
+  --color-hero-gold: #B89668;
+  --color-time-title: #ffffff;
+  --color-credits-bg: #111111;
+  /* --color-gold and --color-sage were each declared TWICE in the old
+     globals.css; the second declaration silently won. These are those
+     effective values — the rendering is unchanged, the duplicates are gone. */
+  --color-gold: #C8A979;
+  --color-sage: #9A9E85;
+
+  /* ── Typefaces ──
+     The FAMILY tokens are declared HERE, not in globals.css, because they
+     reference this template's --ff-* vars — and those only exist inside this
+     scope (next/font puts them on the element carrying data-template).
+
+     This matters: a var() inside a custom property is substituted where that
+     property is DECLARED, not where it is used. A `:root`-level
+     `--font-montserrat: var(--ff-montserrat)` resolves against an undefined
+     --ff-montserrat, computes to invalid, and inherits down as invalid — so
+     every element silently falls back to the system font. Declaring the family
+     here, alongside the --ff-* vars, is what makes the fonts actually apply. */
+  --font-cormorant: var(--ff-cormorant), ui-serif, Georgia, serif;
+  --font-montserrat: var(--ff-montserrat), system-ui, -apple-system, sans-serif;
+
+  /* Roles → faces */
+  --font-body: var(--font-montserrat);
+  --font-couple: var(--font-cormorant);
+  --font-heading: var(--font-cormorant);
+
+  /* ── What `body { … }` used to do ── */
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+/* ── iOS focus-zoom guard ───────────────────────────────────────
+   iOS Safari auto-zooms when a focused text field's font-size is below 16px.
+   Floor every typeable control at 16px, but only on touch devices, so the zoom
+   never fires on phones while the desktop preview keeps its designed inline
+   sizes. !important is required to beat the per-field inline style={{ fontSize }}
+   set in WishesSection.
+
+   Scoped to saffron: villa's RSVP form also sets inline font sizes and was never
+   subject to this rule, so it must not inherit it. */
+@media (pointer: coarse) {
+  [data-template="saffron"] :is(input, textarea, select) {
+    font-size: 16px !important;
+  }
+}

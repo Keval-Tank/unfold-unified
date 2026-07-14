@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SHARED STYLESHEET — carries NO design decisions.
+   ═══════════════════════════════════════════════════════════════════════════
+   Colours, typefaces and the body rule live in the TEMPLATE's own theme.css,
+   scoped to [data-template="<slug>"]. This file holds only the vocabulary the
+   templates speak (the utility token names) plus genuinely shared behaviour.
+   It is intended to be byte-identical across every template, so the unified
+   build can adopt it as-is.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ── Font utility VOCABULARY — names, not typefaces ───────────────────────
+   Plain `@theme` (NOT `@theme inline`): that makes Tailwind emit
+   `.font-body { font-family: var(--font-body) }` rather than baking a typeface
+   into the utility. Because the utility *references* the variable, a template
+   can re-point it inside its own scope — which is what lets saffron's
+   `.font-body` be Montserrat while villa's is Manrope, from one shared sheet.
+
+   Declaring a token here is what makes its `.font-*` utility EXIST; the values
+   below are inert placeholders. Every real typeface is assigned in the
+   template's own theme.css, next to the --ff-* vars its fonts.ts defines —
+   a var() inside a custom property is substituted where the property is
+   DECLARED, so these must be co-located or they resolve to nothing. */
+@theme {
+  /* Named families */
+  --font-cormorant: var(--ff-cormorant), ui-serif, Georgia, serif;
+  --font-montserrat: var(--ff-montserrat), system-ui, -apple-system, sans-serif;
+  --font-manrope: var(--ff-manrope), system-ui, -apple-system, sans-serif;
+
+  /* Typographic ROLES — what components actually use */
+  --font-couple: var(--font-cormorant);
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-montserrat);
+  --font-numeric: var(--font-manrope);
+}
+
+/* ── Landscape-mobile custom variant (Tailwind v4) ─── */
+@custom-variant landscape-mobile (@media (orientation: landscape) and (max-height: 500px));
+
+/* ── Rotate-phone icon animation ─── */
+@keyframes wiggle-rotate {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-30deg); }
+  75% { transform: rotate(30deg); }
+}
+
+.landscape-rotate-icon {
+  animation: wiggle-rotate 2s ease-in-out infinite;
+}
+
+/* ── Hide scrollbar for carousel-style horizontal scroll containers ─── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Editor preview iframe: hide the browser's vertical scrollbar ─────
+   `data-preview` is set on <html> by TemplateProvider only when the page
+   runs inside the /edit preview iframe. Scrolling still works. */
+html[data-preview],
+html[data-preview] body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* legacy Edge */
+}
+html[data-preview]::-webkit-scrollbar,
+html[data-preview] body::-webkit-scrollbar {
+  display: none; /* Chrome / Safari */
+}
